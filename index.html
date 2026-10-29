@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tri Dao Farm - Thực Phẩm Sạch & Chất Lượng Cho Gia Đình</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #2e7d32;
+            --secondary-color: #4caf50;
+            --accent-color: #81c784;
+            --light-bg: #f9fbf9;
+            --text-color: #333333;
+            --white: #ffffff;
+            --orange: #ff9800;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            line-height: 1.7;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo i {
+            color: var(--secondary-color);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(46, 125, 50, 0.75), rgba(46, 125, 50, 0.75)), url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1400&q=80') no-repeat center center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 120px 20px;
+        }
+
+        .hero h1 {
+            font-size: 38px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.95;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--orange);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .btn:hover {
+            background-color: #f57c00;
+            transform: translateY(-2px);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            font-size: 30px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .section-desc {
+            text-align: center;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Core Values / Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .feature-card .icon {
+            font-size: 38px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: var(--primary-color);
+        }
+
+        .feature-card p {
+            color: #666;
+            font-size: 14.5px;
+        }
+
+        /* Products Grid with Images */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-img {
+            height: 180px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            font-size: 18px;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+
+        .product-info p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Mission Section */
+        .mission-section {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1595855759920-86582396756a?auto=format&fit=crop&w=1200&q=80') center/cover;
+            color: var(--white);
+            padding: 60px 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .mission-section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #a5d6a7;
+        }
+
+        .mission-section p {
+            max-width: 850px;
+            margin: 0 auto;
+            font-size: 16px;
+            opacity: 0.95;
+        }
+
+        /* Contact & Map Section */
+        .contact-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 60px;
+            align-items: center;
+        }
+
+        .contact-info h3 {
+            color: var(--primary-color);
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .contact-info p {
+            margin-bottom: 12px;
+            color: #555;
+            font-size: 15px;
+        }
+
+        .contact-info p i {
+            color: var(--secondary-color);
+            width: 25px;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 320px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #ddd;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .map-link-btn {
+            display: inline-block;
+            margin-top: 10px;
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .map-link-btn:hover {
+            text-decoration: underline;
+        }
+
+        /* Quote Banner */
+        .quote-banner {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 35px 20px;
+            font-size: 18px;
+            font-weight: 500;
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #aaa;
+            text-align: center;
+            padding: 25px 20px;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 28px;
+            }
+            .mission-section {
+                padding: 40px 20px;
+            }
+            .contact-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Nav -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fa-solid fa-leaf"></i> Tri Dao Farm
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">Giới thiệu</a></li>
+                <li><a href="#quality">Chất lượng</a></li>
+                <li><a href="#products">Sản phẩm</a></li>
+                <li><a href="#mission">Sứ mệnh</a></li>
+                <li><a href="#contact">Liên hệ & Bản đồ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Thực Phẩm Sạch Tri Dao Farm</h1>
+        <p>Lựa chọn thực phẩm chất lượng cho gia đình. Mang thiên nhiên tươi sạch đến mâm cơm Việt mỗi ngày.</p>
+        <a href="#products" class="btn">Xem Danh Mục Sản Phẩm</a>
+    </section>
+
+    <!-- Main Container -->
+    <div class="container">
+
+        <!-- Giá Trị Cốt Lõi -->
+        <h2 class="section-title">Giá Trị Cốt Lõi</h2>
+        <p class="section-desc">Những cam kết hàng đầu của Tri Dao Farm dành cho sức khỏe gia đình bạn</p>
+        
+        <div class="features-grid">
+            <div class="feature-card" id="about">
+                <div class="icon"><i class="fa-solid fa-seedling"></i></div>
+                <h3>1. Giới thiệu Tri Dao Farm</h3>
+                <p>Hướng đến cung cấp thực phẩm sạch, tươi ngon và chất lượng, góp phần mang đến những bữa ăn ngon, đầy đủ dinh dưỡng cho gia đình Việt.</p>
+            </div>
+
+            <div class="feature-card" id="quality">
+                <div class="icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <h3>2. Chất lượng & Nguồn gốc</h3>
+                <p>Chú trọng đến độ tươi ngon và nguồn gốc minh bạch. Mỗi sản phẩm được chọn lọc kỹ càng mang đến sự an tâm tuyệt đối khi sử dụng hằng ngày.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon"><i class="fa-solid fa-face-smile-beam"></i></div>
+                <h3>4. Khách hàng là trọng tâm</h3>
+                <p>Sự hài lòng và tin tưởng là động lực để không ngừng nâng cao chất lượng dịch vụ với sự tận tâm, chu đáo và minh bạch nhất.</p>
+            </div>
+        </div>
+
+        <!-- Đa dạng sản phẩm -->
+        <h2 class="section-title" id="products">3. Đa dạng sản phẩm</h2>
+        <p class="section-desc">Cung cấp các lựa chọn thực phẩm thiết yếu, đáp ứng trọn vẹn nhu cầu mua sắm và chế biến món ăn</p>
+        
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=500&q=80" alt="Rau củ sạch" class="product-img">
+                <div class="product-info">
+                    <h3>Rau củ quả tươi sạch</h3>
+                    <p>Thu hoạch trực tiếp từ nông trại, đạt chuẩn an toàn, giữ nguyên vẹn độ tươi ngon và vitamin.</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=500&q=80" alt="Trái cây tươi" class="product-img">
+                <div class="product-info">
+                    <h3>Trái cây theo mùa</h3>
+                    <p>Trái cây sạch nội địa và nhập khẩu kiểm định nghiêm ngặt, ngọt tự nhiên, không chất bảo quản.</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=500&q=80" alt="Thực phẩm thiết yếu" class="product-img">
+                <div class="product-info">
+                    <h3>Thực phẩm thiết yếu</h3>
+                    <p>Thịt, trứng, gia cầm và các sản phẩm dinh dưỡng hữu cơ phục vụ bữa ăn gia đình.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sứ mệnh của Tri Dao Farm -->
+        <div class="mission-section" id="mission">
+            <h2>5. Sứ mệnh của Tri Dao Farm</h2>
+            <p>Tri Dao Farm mong muốn trở thành địa chỉ mua sắm thực phẩm đáng tin cậy, đồng hành cùng mỗi gia đình trong việc lựa chọn thực phẩm chất lượng, xây dựng thói quen ăn uống lành mạnh và chăm sóc sức khỏe mỗi ngày.</p>
+        </div>
+
+        <!-- Liên hệ & Map Section -->
+        <h2 class="section-title" id="contact">Thông Tin Liên Hệ & Bản Đồ</h2>
+        <p class="section-desc">Ghé thăm cửa hàng hoặc nông trại của chúng tôi để trải nghiệm sản phẩm trực tiếp</p>
+        
+        <div class="contact-section">
+            <div class="contact-info">
+                <h3>Tri Dao Farm</h3>
+                <p><i class="fa-solid fa-location-dot"></i> Địa chỉ: Cửa hàng thực phẩm sạch & Nông trại</p>
+                <p><i class="fa-solid fa-phone"></i> Hotline: 090x xxx xxx</p>
+                <p><i class="fa-solid fa-envelope"></i> Email: tridaofarm@gmail.com</p>
+                <p><i class="fa-solid fa-clock"></i> Mở cửa: Thứ 2 - Chủ Nhật (07:00 - 20:30)</p>
+                <!-- Nút mở trực tiếp link bản đồ của bạn -->
+                <a href="https://maps.app.goo.gl/DbDmz6nmvPGrmsjbA" target="_blank" class="map-link-btn">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Mở chỉ đường lớn trong Google Maps
+                </a>
+            </div>
+            
+            <!-- Bản đồ Google Maps nhúng trực tiếp -->
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!3m2!1svi!2s!4v1793259535655!5m2!1svi!2s!6m8!1m7!1sx-WTjYnpJ5WS22sKQme9tg!2m2!1d10.8666928793139!2d106.438013161225!3f2.789682158956964!4f0.13396832874065012!5f0.7820865974627469" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+        </div>
+
+        <!-- Slogan kết luận -->
+        <div class="quote-banner">
+            "Tri Dao Farm – Thực phẩm sạch, chất lượng và sự an tâm cho mọi gia đình."
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Tri Dao Farm. All rights reserved. Designed for GitHub Pages.</p>
+    </footer>
+
+</body>
+</html>
